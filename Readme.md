@@ -191,8 +191,19 @@ Steps performed:
 ✔ Converted `City` into the correct data type
 ![City](Power_Querry/Customers/City_type.png)
 
-✔ Created a cleaned `Gender` column using add Custom Cloumn and replaced inconsistent gender values
-![City](Power_Querry/Customers/City_type.png)
+✔ Created a cleaned `Gender` column using add Custom Cloumn with the help of following power querry M code
+
+```Power Querry
+if [Gender] = "M" then "Male"
+else if [Gender] = "F" then "Female"
+else Text.Proper([Gender])
+```
+replaced inconsistent gender values
+![Gender](Power_Querry/Customers/Gender_custom_column.png)
+![Gender](Power_Querry\Customers\Gender_clean.png)
+
+converted Gender_Clean to correct data type and then original Gender Column was replaced by Gender_Clean by removing original one.
+![Gender](Power_Querry\Customers\gender_clean_type.png)
 
 ✔ Replaced incorrect values in `Age` and converted the column to the correct data type
 ![Age](Power_Querry/Customers/age_replace_values.png)
@@ -205,7 +216,13 @@ Steps performed:
 ✔ Converted `Join_Date` into the correct date data type using locale settings
 ![Join_Date](Power_Querry/Customers/join_date_type1.png)
 
-✔ Created a cleaned `Email` column by replacing inconsistent email values
+✔ Created a cleaned `Email` column using add custom column and replaced inconsistent email values using the following power querry M code
+
+```Power Querry
+if Text.Contains([Email], "@") and not Text.Contains([Email], ".com")
+then [Email] & ".com"
+else [Email]
+```
 ![Email](Power_Querry/Customers/Email_Custom.png)
 ![Email](Power_Querry/Customers/Email_clean2.png)
 
