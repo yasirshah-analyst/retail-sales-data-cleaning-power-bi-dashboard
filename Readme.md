@@ -233,29 +233,46 @@ else [Email]
 Steps performed:
 
 ✔ Standardized `Customer_ID` format by converting values to uppercase
-
+![Customer_ID](Power_Querry/Sales_Transaction/customer_id)
 
 ✔ Standardized `Order_Date` formats using locale settings
+![Order_Date](Power_Querry/Sales_Transaction/order_date_1.png)
 
 ✔ Converted `Order_Date` into the correct date data type
+![Order_Date](Power_Querry/Sales_Transaction/order_date_2.png)
 
 ✔ Capitalized `Product_Name` values
+![Product_Name](Power_Querry/Sales_Transaction/product_capitalize.png)
 
 ✔ Capitalized `Category` values
+![Category](Power_Querry/Sales_Transaction/category_capitalize.png)
 
 ✔ Capitalized `Region` values
+![Region](Power_Querry/Sales_Transaction/region_capitalize.png)
 
 ✔ Replaced incorrect text values in the `Quantity` column
+![Quantity](Power_Querry/Sales_Transaction/quantity_replace_values.png)
 
 ✔ Converted `Quantity` into the correct numeric data type
+![Quantity](Power_Querry/Sales_Transaction/quantity_data_type.png)
 
 ✔ Replaced incorrect text values in the `Discount` column
+![Discount](Power_Querry/Sales_Transaction/discount_replace_values_1.png)
+![Discount](Power_Querry/Sales_Transaction/discount_replace_values_2.png)
+
+null value in Discount were replaced with 0
+![Discount](Power_Querry/Sales_Transaction/discount_null.png)
 
 ✔ Converted `Discount` into the correct numeric data type
+![Discount](Power_Querry/Sales_Transaction/discount_data_type.png)
 
 ✔ Corrected `Unit_Price` data type
+![Unit_Price](Power_Querry/Sales_Transaction/unit_price_data_type.png)
 
 ✔ Capitalized `Salesperson` values
+![Salesperson](Power_Querry/Sales_Transaction/salesperson_capitalize.png)
+replaced e in ahmed with a i.e; ahmad
+![Salesperson](Power_Querry/Sales_Transaction/salesperson_replace_values.png)
 
 ---
 
