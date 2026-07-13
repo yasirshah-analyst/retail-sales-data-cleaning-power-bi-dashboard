@@ -233,7 +233,7 @@ else [Email]
 Steps performed:
 
 ✔ Standardized `Customer_ID` format by converting values to uppercase
-![Customer_ID](Power_Querry\Sales_Transaction\customer_id_uppercase.png)
+![Customer_ID](Power_Querry/Sales_Transaction/customer_id_uppercase.png)
 
 ✔ Standardized `Order_Date` formats using locale settings
 ![Order_Date](Power_Querry/Sales_Transaction/order_date_1.png)
