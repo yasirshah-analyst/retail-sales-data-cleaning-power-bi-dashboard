@@ -200,10 +200,10 @@ else Text.Proper([Gender])
 ```
 replaced inconsistent gender values
 ![Gender](Power_Querry/Customers/Gender_custom_column.png)
-![Gender](Power_Querry\Customers\Gender_clean.png)
+![Gender](Power_Querry/Customers/Gender_clean.png)
 
 converted Gender_Clean to correct data type and then original Gender Column was replaced by Gender_Clean by removing original one.
-![Gender](Power_Querry\Customers\gender_clean_type.png)
+![Gender](Power_Querry/Customers/gender_clean_type.png)
 
 ✔ Replaced incorrect values in `Age` and converted the column to the correct data type
 ![Age](Power_Querry/Customers/age_replace_values.png)
@@ -225,9 +225,6 @@ else [Email]
 ```
 ![Email](Power_Querry/Customers/Email_Custom.png)
 ![Email](Power_Querry/Customers/Email_clean2.png)
-
-✔ Converted the cleaned email column to General/Text data type
-![Email](Power_Querry/Customers/email_type.png)
 
 ---
 
