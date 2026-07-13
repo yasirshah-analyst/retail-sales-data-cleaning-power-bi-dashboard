@@ -489,12 +489,6 @@ DIVIDE(
 
 ---
 
-# 📈 Dashboard Development
-
-An interactive Power BI dashboard was created to provide an executive-level overview of sales performance.
-
----
-
 # 📊 Dashboard Development
 
 An interactive Power BI dashboard was developed to monitor sales performance, analyze customer behavior, and identify business trends.
