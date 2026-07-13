@@ -1,7 +1,5 @@
 # Retail Sales Data Cleaning & Business Intelligence Dashboard
 
-![Power BI Dashboard](07_Power_BI_Dashboard/Dashboard_Screenshots/01_Executive_Dashboard.png)
-
 # 📌 Project Overview
 
 This project demonstrates a complete end-to-end Data Analytics and Business Intelligence workflow, transforming raw retail sales data into a clean, structured, and interactive business dashboard.
@@ -185,22 +183,34 @@ Power Query was used to clean, standardize, and transform the raw datasets befor
 Steps performed:
 
 ✔ Standardized `Customer_ID` format by converting values to uppercase
+![Customer_ID](Power_Querry/Customers/customer_id_uppercase.png)
 
-✔ Capitalized `Customer_Name` values for consistent formatting
+✔ Converted `Customer_Name` into the correct data type
+![Customer_Name](Power_Querry/Customers/customer_name_data_type.png)
 
-✔ Capitalized `City` values
+✔ Converted `City` into the correct data type
+![City](Power_Querry/Customers/City_type.png)
 
-✔ Created a cleaned `Gender` column by replacing inconsistent gender values
+✔ Created a cleaned `Gender` column using add Custom Cloumn and replaced inconsistent gender values
+![City](Power_Querry/Customers/City_type.png)
 
 ✔ Replaced incorrect values in `Age` and converted the column to the correct data type
+![Age](Power_Querry/Customers/age_replace_values.png)
+![Age](Power_Querry/Customers/age_repvalues_2.png)
+![Age](Power_Querry/Customers/age_type.png)
 
 ✔ Standardized `Join_Date` values by replacing inconsistent date formats
+![Join_Date](Power_Querry/Customers/join_date_replace.png)
 
 ✔ Converted `Join_Date` into the correct date data type using locale settings
+![Join_Date](Power_Querry/Customers/join_date_type1.png)
 
 ✔ Created a cleaned `Email` column by replacing inconsistent email values
+![Email](Power_Querry/Customers/Email_Custom.png)
+![Email](Power_Querry/Customers/Email_clean2.png)
 
 ✔ Converted the cleaned email column to General/Text data type
+![Email](Power_Querry/Customers/email_type.png)
 
 ---
 
@@ -209,6 +219,7 @@ Steps performed:
 Steps performed:
 
 ✔ Standardized `Customer_ID` format by converting values to uppercase
+
 
 ✔ Standardized `Order_Date` formats using locale settings
 
