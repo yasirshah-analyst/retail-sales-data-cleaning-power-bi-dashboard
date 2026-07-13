@@ -366,7 +366,7 @@ Date[Date] → Sales_Transactions[Order_Date]
 ## Data Model Screenshot
 
 ![Data Model](Data_Modeling/Model_View.png)
-![Data Model](Data_Modeling\1.png)
+![Data Model](Data_Modeling/1.png)
 ![Data Model](Data_Modeling/2.png)
 
 
@@ -485,7 +485,7 @@ DIVIDE(
     [Total Orders]
 )
 ```
-![AOV](DAX_development\Dax_Measures\Average_order_value.png)
+![AOV](DAX_development/Dax_Measures/Average_order_value.png)
 
 ---
 
@@ -584,7 +584,7 @@ These slicers enable dynamic exploration of sales performance across different b
 
 # 📸 Dashboard Preview
 
-![Executive Dashboard](07_Power_BI_Dashboard/Dashboard_Screenshots/01_Executive_Dashboard.png)
+![Power BI Dashboard](dashboard\dashboard.png)
 
 ---
 
