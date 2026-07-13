@@ -584,7 +584,7 @@ These slicers enable dynamic exploration of sales performance across different b
 
 # 📸 Dashboard Preview
 
-![Power BI Dashboard](dashboard\dashboard.png)
+![Power BI Dashboard](dashboard/dashboard.png)
 
 ---
 
