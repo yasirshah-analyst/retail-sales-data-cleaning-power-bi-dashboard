@@ -224,7 +224,6 @@ then [Email] & ".com"
 else [Email]
 ```
 ![Email](Power_Querry/Customers/Email_Custom.png)
-![Email](Power_Querry/Customers/Email_clean2.png)
 
 ---
 
@@ -273,44 +272,6 @@ null value in Discount were replaced with 0
 ![Salesperson](Power_Querry/Sales_Transaction/salesperson_capitalize.png)
 replaced e in ahmed with a i.e; ahmad
 ![Salesperson](Power_Querry/Sales_Transaction/salesperson_replace_values.png)
-
----
-
-# 📸 Power Query Transformation Process
-
-## Raw Data Loading
-
-![Raw Data](04_Power_Query/Screenshots/01_Loading_Raw_Data.png)
-
-
-## Standardizing Date Formats
-
-![Date Cleaning](04_Power_Query/Screenshots/02_Fixing_Date_Formats.png)
-
-
-## Cleaning Text Columns
-
-![Text Cleaning](04_Power_Query/Screenshots/03_Cleaning_Product_Names.png)
-
-
-## Standardizing Categories and Regions
-
-![Category Cleaning](04_Power_Query/Screenshots/04_Standardizing_Categories.png)
-
-
-## Replacing Incorrect Values
-
-![Value Replacement](04_Power_Query/Screenshots/05_Removing_Currency_Symbols.png)
-
-
-## Correcting Data Types
-
-![Data Types](04_Power_Query/Screenshots/06_Changing_Data_Types.png)
-
-
-## Final Clean Dataset
-
-![Clean Dataset](04_Power_Query/Screenshots/07_Final_Clean_Table.png)
 
 ---
 
@@ -404,8 +365,10 @@ Date[Date] → Sales_Transactions[Order_Date]
 
 ## Data Model Screenshot
 
-![Data Model](05_Data_Modeling/relationship.png)r_ID]
-```
+![Data Model](Data_Modeling/Model_View.png)
+![Data Model](Data_Modeling\1.png)
+![Data Model](Data_Modeling/2.png)
+
 
 ---
 
@@ -428,6 +391,7 @@ CALENDAR(
     MAX(Sales_Transactions[Order_Date])
 )
 ```
+![Date_Table](DAX_development/Date_Table/Date_table.png)
 
 ---
 
@@ -442,6 +406,7 @@ FORMAT(
     "MMM YYYY"
 )
 ```
+![Month](DAX_development/Date_Table/Month_date_table.png)
 
 ---
 
@@ -454,6 +419,7 @@ Month_number =
 YEAR(Date_Table[Date]) * 100 +
 MONTH(Date_Table[Date])
 ```
+![Month_no](DAX_development/Date_Table/month_number.png)
 
 ---
 
@@ -476,6 +442,7 @@ SUMX(
     (1 - Sales_Transactions[Discount])
 )
 ```
+![Revenue](DAX_development/Dax_Measures/Revenue.png)
 
 ---
 
@@ -489,6 +456,7 @@ COUNT(
     Sales_Transactions[Transaction_ID]
 )
 ```
+![Total_Orders](DAX_development/Dax_Measures/orders.png)
 
 ---
 
@@ -502,6 +470,7 @@ DISTINCTCOUNT(
     Customers[Customer_ID]
 )
 ```
+![Total_Customers](DAX_development/Dax_Measures/Total_Customers.png)
 
 ---
 
@@ -516,6 +485,7 @@ DIVIDE(
     [Total Orders]
 )
 ```
+![AOV](DAX_development\Dax_Measures\Average_order_value.png)
 
 ---
 
