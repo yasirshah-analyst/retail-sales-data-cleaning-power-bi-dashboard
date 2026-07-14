@@ -749,3 +749,12 @@ The final dashboard provides stakeholders with a clear understanding of sales pe
 **Yasir Shah**
 
 Data Analyst | Power BI | SQL | Excel
+
+---
+
+## Contact
+
+📧 Email: shahyasir443@gmail.com
+
+💼 LinkedIn: www.linkedin.com/in/yasir-shah-2364183b3
+
