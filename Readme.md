@@ -172,12 +172,15 @@ Power Query was used to clean, standardize, and transform the raw datasets befor
 Steps performed:
 
 ✔ **1. Standardized `Customer_ID`** — converted all values to uppercase to ensure consistent matching with the Sales Transactions table.
+
 ![Customer_ID](Power_Querry/Customers/customer_id_uppercase.png)
 
 ✔ **2. Fixed `Customer_Name` data type** — corrected the column type so it's treated as text consistently.
+
 ![Customer_Name](Power_Querry/Customers/customer_name_data_type.png)
 
 ✔**3. Fixed `City` data type** — corrected the column type.
+
 ![City](Power_Querry/Customers/City_type.png)
 
 ✔ **4. Cleaned `Gender`** — added a custom column to normalize inconsistent entries (`M`/`F`/mixed case) into a standard `Male`/`Female` format:
@@ -186,28 +189,38 @@ Steps performed:
 if [Gender] = "M" then "Male"
 else if [Gender] = "F" then "Female"
 else Text.Proper([Gender])
+
 ```
 ![Gender](Power_Querry/Customers/Gender_custom_column.png)
+
 ![Gender](Power_Querry/Customers/Gender_clean.png)
 
 The new `Gender_Clean` column was converted to the correct data type, and the original `Gender` column was removed and replaced by it.
+
 ![Gender](Power_Querry/Customers/gender_clean_type.png)
 
 ✔ **5. Fixed `Age`** — replaced invalid/incorrect entries and converted the column to a numeric type.
+
 ![Age](Power_Querry/Customers/age_replace_values.png)
+
 ![Age](Power_Querry/Customers/age_repvalues_2.png)
+
 ![Age](Power_Querry/Customers/age_type.png)
 
 ✔ **6. Standardized `Join_Date`** — replaced inconsistent date formats, then converted to a proper Date type using locale settings so mixed formats (e.g. DD/MM/YYYY vs MM/DD/YYYY) parsed correctly.
+
 ![Join_Date](Power_Querry/Customers/join_date_replace.png)
+
 ![Join_Date](Power_Querry/Customers/join_date_type1.png)
 
 ✔ **7. Cleaned `Email`** — added a custom column to catch malformed emails missing a domain and append `.com`:
+
 ```m
 if Text.Contains([Email], "@") and not Text.Contains([Email], ".com")
 then [Email] & ".com"
 else [Email]
 ```
+
 ![Email](Power_Querry/Customers/Email_Custom.png)
 
 ---
@@ -217,36 +230,51 @@ else [Email]
 Steps performed:
 
 ✔ **1. Standardized `Customer_ID`** — converted to uppercase, matching the format used in the Customers table so the relationship joins correctly.
+
 ![Customer_ID](Power_Querry/Sales_Transaction/customer_id_uppercase.png)
 
 ✔ **2. Standardized `Order_Date`** — normalized inconsistent date formats using locale settings, then converted to a proper Date type.
+
 ![Order_Date](Power_Querry/Sales_Transaction/order_date_1.png)
+
 ![Order_Date](Power_Querry/Sales_Transaction/order_date_2.png)
 
 ✔  **3. Capitalized `Product_Name`** — standardized casing so the same product wasn't split into multiple values (e.g. `laptop`, `Laptop`, `LAPTOP`).
+
 ![Product_Name](Power_Querry/Sales_Transaction/product_capitalize.png)
 
 ✔**4. Capitalized `Category`** — same standardization applied.
+
 ![Category](Power_Querry/Sales_Transaction/category_capitalize.png)
 
 ✔**5. Capitalized `Region`** — same standardization applied.
+
 ![Region](Power_Querry/Sales_Transaction/region_capitalize.png)
 
 ✔**6. Fixed `Quantity`** — replaced invalid text entries, then converted the column to a numeric type.
+
 ![Quantity](Power_Querry/Sales_Transaction/quantity_replace_values.png)
+
 ![Quantity](Power_Querry/Sales_Transaction/quantity_data_type.png)
 
 ✔ **7. Fixed `Discount`** — replaced invalid text entries, replaced nulls with `0` (so blank discounts wouldn't break revenue calculations), then converted to a % type.
+
 ![Discount](Power_Querry/Sales_Transaction/discount_replace_values_1.png)
+
 ![Discount](Power_Querry/Sales_Transaction/discount_replace_values_2.png)
+
 ![Discount](Power_Querry/Sales_Transaction/discount_null.png)
+
 ![Discount](Power_Querry/Sales_Transaction/discount_data_type.png)
 
 ✔ **8. Fixed `Unit_Price`** — Corrected the data type
+
 ![Unit_Price](Power_Querry/Sales_Transaction/unit_price_data_type.png)
 
 ✔ **9. Capitalized `Salesperson`** — standardized casing and corrected a spelling inconsistency (`Ahmed` → `Ahmad`).
+
 ![Salesperson](Power_Querry/Sales_Transaction/salesperson_capitalize.png)
+
 ![Salesperson](Power_Querry/Sales_Transaction/salesperson_replace_values.png)
 
 ---
@@ -342,9 +370,10 @@ Date[Date] → Sales_Transactions[Order_Date]
 ## Data Model Screenshot
 
 ![Data Model](Data_Modeling/Model_View.png)
-![Data Model](Data_Modeling/1.png)
-![Data Model](Data_Modeling/2.png)
 
+![Data Model](Data_Modeling/1.png)
+
+![Data Model](Data_Modeling/2.png)
 
 ---
 
@@ -367,6 +396,7 @@ CALENDAR(
     MAX(Sales_Transactions[Order_Date])
 )
 ```
+
 ![Date_Table](DAX_development/Date_Table/Date_table.png)
 
 ---
@@ -382,6 +412,7 @@ FORMAT(
     "MMM YYYY"
 )
 ```
+
 ![Month](DAX_development/Date_Table/Month_date_table.png)
 
 ---
@@ -395,6 +426,7 @@ Month_number =
 YEAR(Date_Table[Date]) * 100 +
 MONTH(Date_Table[Date])
 ```
+
 ![Month_no](DAX_development/Date_Table/month_number.png)
 
 ---
@@ -418,6 +450,7 @@ SUMX(
     (1 - Sales_Transactions[Discount])
 )
 ```
+
 ![Revenue](DAX_development/Dax_Measures/Revenue.png)
 
 ---
@@ -432,6 +465,7 @@ COUNT(
     Sales_Transactions[Transaction_ID]
 )
 ```
+
 ![Total_Orders](DAX_development/Dax_Measures/orders.png)
 
 ---
@@ -446,6 +480,7 @@ DISTINCTCOUNT(
     Customers[Customer_ID]
 )
 ```
+
 ![Total_Customers](DAX_development/Dax_Measures/Total_Customers.png)
 
 ---
@@ -461,6 +496,7 @@ DIVIDE(
     [Total Orders]
 )
 ```
+
 ![AOV](DAX_development/Dax_Measures/Average_order_value.png)
 
 ---
