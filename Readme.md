@@ -1,40 +1,29 @@
 # Retail Sales Data Cleaning & Business Intelligence Dashboard
+End-to-end Retail Sales Analytics project using Power Query, Power BI, and DAX — covering data cleaning, data modeling, dashboard development, and business insights.
+
 
 # 📌 Project Overview
 
-This project demonstrates a complete end-to-end Data Analytics and Business Intelligence workflow, transforming raw retail sales data into a clean, structured, and interactive business dashboard.
+This project demonstrates a complete data analytics workflow: taking raw, inconsistent retail sales data and turning it into a clean, structured, interactive Power BI dashboard.
 
-The project follows a real-world analytics process:
+**Workflow followed:**
+- Understand the business problem
+- Identify data quality issues
+- Clean and transform raw data (Power Query)
+- Build a structured data model
+- Develop DAX measures
+- Build an interactive Power BI dashboard
+- Extract business insights and recommendations
 
-- Understanding the business problem
-- Identifying data quality issues
-- Cleaning and transforming raw data
-- Creating a structured data model
-- Developing DAX measures
-- Building an interactive Power BI dashboard
-- Extracting business insights
-- Providing recommendations for decision-making
-
-The objective was to convert unreliable raw sales data into meaningful information that helps stakeholders understand revenue performance, customer behavior, and sales trends.
-
-> **Note:** The original dataset and Power BI (.pbix) file are not publicly available. Dashboard screenshots, methodology, and analytical documentation are provided for portfolio demonstration purposes.
+> **Note:** The original dataset and .pbix file are not publicly available. Screenshots, methodology, and code are provided for portfolio demonstration.
 
 ---
 
 # 🎯 Business Problem
 
-The organization collects sales and customer information from different sources. However, the raw data contains several inconsistencies, formatting issues, duplicate records, and incorrect data types.
+Sales and customer data is pulled from multiple sources and arrives with inconsistent formatting, duplicate records, and incorrect data types — making it unreliable for analysis.
 
-These data quality problems make it difficult to perform accurate analysis and generate reliable business insights.
-
-The project aims to solve the following challenges:
-
-- Improve data accuracy and consistency
-- Prepare clean analytical datasets
-- Build a reliable data model
-- Create meaningful performance indicators
-- Develop an interactive dashboard
-- Support business decisions through data insights
+**Objective:** clean and model the data, then build a dashboard that supports reliable business decisions.
 
 ---
 
@@ -182,43 +171,39 @@ Power Query was used to clean, standardize, and transform the raw datasets befor
 
 Steps performed:
 
-✔ Standardized `Customer_ID` format by converting values to uppercase
+✔ **1. Standardized `Customer_ID`** — converted all values to uppercase to ensure consistent matching with the Sales Transactions table.
 ![Customer_ID](Power_Querry/Customers/customer_id_uppercase.png)
 
-✔ Converted `Customer_Name` into the correct data type
+✔ **2. Fixed `Customer_Name` data type** — corrected the column type so it's treated as text consistently.
 ![Customer_Name](Power_Querry/Customers/customer_name_data_type.png)
 
-✔ Converted `City` into the correct data type
+✔**3. Fixed `City` data type** — corrected the column type.
 ![City](Power_Querry/Customers/City_type.png)
 
-✔ Created a cleaned `Gender` column using add Custom Cloumn with the help of following power querry M code
+✔ **4. Cleaned `Gender`** — added a custom column to normalize inconsistent entries (`M`/`F`/mixed case) into a standard `Male`/`Female` format:
 
-```Power Querry
+```m
 if [Gender] = "M" then "Male"
 else if [Gender] = "F" then "Female"
 else Text.Proper([Gender])
 ```
-replaced inconsistent gender values
 ![Gender](Power_Querry/Customers/Gender_custom_column.png)
 ![Gender](Power_Querry/Customers/Gender_clean.png)
 
-converted Gender_Clean to correct data type and then original Gender Column was replaced by Gender_Clean by removing original one.
+The new `Gender_Clean` column was converted to the correct data type, and the original `Gender` column was removed and replaced by it.
 ![Gender](Power_Querry/Customers/gender_clean_type.png)
 
-✔ Replaced incorrect values in `Age` and converted the column to the correct data type
+✔ **5. Fixed `Age`** — replaced invalid/incorrect entries and converted the column to a numeric type.
 ![Age](Power_Querry/Customers/age_replace_values.png)
 ![Age](Power_Querry/Customers/age_repvalues_2.png)
 ![Age](Power_Querry/Customers/age_type.png)
 
-✔ Standardized `Join_Date` values by replacing inconsistent date formats
+✔ **6. Standardized `Join_Date`** — replaced inconsistent date formats, then converted to a proper Date type using locale settings so mixed formats (e.g. DD/MM/YYYY vs MM/DD/YYYY) parsed correctly.
 ![Join_Date](Power_Querry/Customers/join_date_replace.png)
-
-✔ Converted `Join_Date` into the correct date data type using locale settings
 ![Join_Date](Power_Querry/Customers/join_date_type1.png)
 
-✔ Created a cleaned `Email` column using add custom column and replaced inconsistent email values using the following power querry M code
-
-```Power Querry
+✔ **7. Cleaned `Email`** — added a custom column to catch malformed emails missing a domain and append `.com`:
+```m
 if Text.Contains([Email], "@") and not Text.Contains([Email], ".com")
 then [Email] & ".com"
 else [Email]
@@ -231,46 +216,37 @@ else [Email]
 
 Steps performed:
 
-✔ Standardized `Customer_ID` format by converting values to uppercase
+✔ **1. Standardized `Customer_ID`** — converted to uppercase, matching the format used in the Customers table so the relationship joins correctly.
 ![Customer_ID](Power_Querry/Sales_Transaction/customer_id_uppercase.png)
 
-✔ Standardized `Order_Date` formats using locale settings
+✔ **2. Standardized `Order_Date`** — normalized inconsistent date formats using locale settings, then converted to a proper Date type.
 ![Order_Date](Power_Querry/Sales_Transaction/order_date_1.png)
-
-✔ Converted `Order_Date` into the correct date data type
 ![Order_Date](Power_Querry/Sales_Transaction/order_date_2.png)
 
-✔ Capitalized `Product_Name` values
+✔  **3. Capitalized `Product_Name`** — standardized casing so the same product wasn't split into multiple values (e.g. `laptop`, `Laptop`, `LAPTOP`).
 ![Product_Name](Power_Querry/Sales_Transaction/product_capitalize.png)
 
-✔ Capitalized `Category` values
+✔**4. Capitalized `Category`** — same standardization applied.
 ![Category](Power_Querry/Sales_Transaction/category_capitalize.png)
 
-✔ Capitalized `Region` values
+✔**5. Capitalized `Region`** — same standardization applied.
 ![Region](Power_Querry/Sales_Transaction/region_capitalize.png)
 
-✔ Replaced incorrect text values in the `Quantity` column
+✔**6. Fixed `Quantity`** — replaced invalid text entries, then converted the column to a numeric type.
 ![Quantity](Power_Querry/Sales_Transaction/quantity_replace_values.png)
-
-✔ Converted `Quantity` into the correct numeric data type
 ![Quantity](Power_Querry/Sales_Transaction/quantity_data_type.png)
 
-✔ Replaced incorrect text values in the `Discount` column
+✔ **7. Fixed `Discount`** — replaced invalid text entries, replaced nulls with `0` (so blank discounts wouldn't break revenue calculations), then converted to a % type.
 ![Discount](Power_Querry/Sales_Transaction/discount_replace_values_1.png)
 ![Discount](Power_Querry/Sales_Transaction/discount_replace_values_2.png)
-
-null value in Discount were replaced with 0
 ![Discount](Power_Querry/Sales_Transaction/discount_null.png)
-
-✔ Converted `Discount` into the correct numeric data type
 ![Discount](Power_Querry/Sales_Transaction/discount_data_type.png)
 
-✔ Corrected `Unit_Price` data type
+✔ **8. Fixed `Unit_Price`** — Corrected the data type
 ![Unit_Price](Power_Querry/Sales_Transaction/unit_price_data_type.png)
 
-✔ Capitalized `Salesperson` values
+✔ **9. Capitalized `Salesperson`** — standardized casing and corrected a spelling inconsistency (`Ahmed` → `Ahmad`).
 ![Salesperson](Power_Querry/Sales_Transaction/salesperson_capitalize.png)
-replaced e in ahmed with a i.e; ahmad
 ![Salesperson](Power_Querry/Sales_Transaction/salesperson_replace_values.png)
 
 ---
